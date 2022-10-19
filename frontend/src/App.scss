@@ -1,0 +1,43 @@
+@use 'shared/sass/variables' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@600&family=Edu+VIC+WA+NT+Beginner&family=Roboto+Mono&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto Mono', monospace;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  padding: 0;
+  margin: 0;
+}
+
+.dark {
+  .background {
+    background-color: $DarkColor;
+    .text {
+      color: $DarkTextColor;
+    }
+    .color {
+      background-color: $DarkBackgroundColor;
+    }
+  }
+}
+
+.light {
+  .background {
+    background-color: $LightColor;
+    //box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+    .text {
+      color: $LightTextColor;
+    }
+    .color {
+      background-color: $LightBackgroundColor;
+    }
+  }
+}

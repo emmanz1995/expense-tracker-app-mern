@@ -1,0 +1,77 @@
+@use '../../shared/sass/variables' as *;
+
+.dashboard {
+  //max-width: 1100px;
+  //margin: 60px auto;
+  height: 100vh;
+  &__card__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    gap: 15px;
+  }
+  &__stats__container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  &__pie__wrapper {
+    width: 50%;
+    height: auto;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 1rem;
+    box-shadow: rgb(0 0 0 / 0.5%) 0 1.2rem 1rem 0;
+    h4 {
+      text-align: center;
+      color: rgb(52, 71, 103);
+    }
+  }
+  &__transaction__wrapper {
+    width: 50%;
+    height: auto;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: rgb(0 0 0 / 0.5%) 0 1.2rem 1rem 0;
+    h4 {
+      text-align: center;
+      color: rgb(52, 71, 103);
+    }
+    .transactions {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+    }
+  }
+  &__cards {
+    width: 100%;
+    box-shadow: rgb(0 0 0 / 5%) 0 1.2rem 1rem 0;
+    padding: 25px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h5 {
+      color: rgb(103, 116, 142)
+    }
+    p {
+      color: rgb(52, 71, 103);
+    }
+  }
+}
+
+@media screen and (max-width: $sm) {
+  .dashboard__card__wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .dashboard__pie__wrapper {
+    width: 100%;
+  }
+}

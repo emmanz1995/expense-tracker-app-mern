@@ -1,0 +1,48 @@
+.nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1100px;
+    h4 {
+      color: rgb(52, 71, 103);
+    }
+  }
+  &__ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    list-style: none;
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      color: rgb(52, 71, 103);
+    }
+  }
+}
+
+.black {
+  background-color: #000;
+  .nav__wrapper {
+    h4 {
+      color: rgb(240 242 245/1)!important;
+    }
+    ul {
+      .moon-icon {
+        color: rgb(240 242 245/1)!important;
+      }
+      .create-post-link {
+        color: rgb(240 242 245/1)!important;
+        text-decoration: none;
+      }
+    }
+  }
+}

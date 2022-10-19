@@ -1,0 +1,46 @@
+.addModal {
+  padding: 15px;
+  border-radius: 1rem;
+  box-shadow: rgb(0 0 0 / 0.5) 0 1.25rem 1 0;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 10px 0;
+  }
+  &__form {
+    span {}
+    .input {
+      width: 100%;
+      padding: 7px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      background-color: #F4F7FE;
+    }
+    .errors {
+      border: solid 1px red;
+    }
+    select {
+      width: 100%;
+      padding: 7px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      background-color: #F4F7FE;
+    }
+    button {
+      width: 100%;
+      padding: 7px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      background-color: #F4F7FE;
+      cursor: pointer;
+    }
+    .error {
+      color: red;
+      font-size: 12px;
+    }
+  }
+}
