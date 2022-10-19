@@ -18,13 +18,13 @@ const expenseReducer = (expenses = initialState, action: AnyAction) => {
             return { error: payload }
         case Types.UPDATE_EXPENSES_SUCCESS:
             return expenses.map((expense: Expense) => (
-                expense._id === payload._id ? { ...expense, ...payload } : expense)
+                expense.id === payload.id ? { ...expense, ...payload } : expense)
             )
         case Types.UPDATE_EXPENSES_ERROR:
             return { error: payload }
         case Types.DELETE_EXPENSES_SUCCESS:
             return expenses.filter(( expense: Expense ) => {
-                return expense._id !== payload._id
+                return expense.id !== payload.id
             });
 
         case Types.DELETE_EXPENSES_ERROR:

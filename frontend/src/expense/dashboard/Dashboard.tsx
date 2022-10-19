@@ -5,7 +5,7 @@ import './dashboard.scss';
 import { FaPlus, FaMinus, FaDollarSign } from 'react-icons/fa';
 import { Expense } from '../../util/expenseEntity';
 import { Price } from '../../util/helpers';
-import { Pie } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJs, Tooltip, Legend, ArcElement } from 'chart.js';
 import TransactionCard from '../../shared/components/transactionCard/TransactionCard';
 
@@ -14,12 +14,12 @@ const Dashboard = () => {
     const transactions = useSelector((state: any) => state.expenses);
 
     const retrieveTransactions = () => {
-        // @ts-ignore
-        dispatch<DispatchProp>(fetchExpense());
+      // @ts-ignore
+      dispatch<DispatchProp>(fetchExpense());
     }
 
     useEffect(() => {
-        retrieveTransactions();
+      retrieveTransactions();
     }, []);
 
     const moneyOptions = { style: 'currency', currency: 'USD' };
@@ -27,38 +27,41 @@ const Dashboard = () => {
 
     // Find and get the total amount of the expense transaction
     const expenseAmount = transactions
-        .filter((transaction: Expense) => transaction.type === 'expense')
-        .reduce((value1: number, value2: Price) => value1 + value2.price, 0);
+      .filter((transaction: Expense) => transaction.type === 'expense')
+      .reduce((value1: number, value2: Price) => value1 + value2.price, 0);
 
     // Find and get the total amount of the income transaction
     const incomeAmount = transactions
-        .filter((transaction: Expense) => transaction.type === 'income')
-        .reduce((value1: number, value2: Price) => value1 + value2.price, 0);
+      .filter((transaction: Expense) => transaction.type === 'income')
+      .reduce((value1: number, value2: Price) => value1 + value2.price, 0);
 
     const balance = incomeAmount - expenseAmount;
 
     ChartJs.register(ArcElement, Tooltip, Legend);
 
     const data = {
-        labels: ['Your Balance', 'Your Expenses', 'Your Income'],
-        datasets: [
-            {
-                label: 'total amount of #',
-                data: [balance, expenseAmount, incomeAmount],
-                backgroundColor: [
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(75, 192, 192, 1)'
-                ],
-                borderWidth: 1,
-            },
-        ],
+      labels: ['Your Balance', 'Your Expenses', 'Your Income'],
+      datasets: [
+        {
+          label: 'total amount of #',
+          data: [balance, expenseAmount, incomeAmount],
+          backgroundColor: [
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+          ],
+          borderColor: [
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(75, 192, 192, 1)'
+          ],
+          borderWidth: 1,
+        },
+      ],
     }
+
+    const showFiveTransactions = transactions.filter((transaction: Expense) => transaction.item.length)
+
     return (
         <div className="dashboard">
             <div className="dashboard__card__wrapper">
@@ -79,13 +82,13 @@ const Dashboard = () => {
             <div className="dashboard__stats__container">
                 <div className="dashboard__pie__wrapper">
                     <h4>Chart of Income and Expense</h4>
-                    <Pie data={data} />
+                    <Doughnut data={data} />
                 </div>
                 <div className="dashboard__transaction__wrapper">
                     <h4>Transaction History!</h4>
                     <div className="transactions">
                         {transactions.map((transaction: Expense) => (
-                            <div key={transaction._id}>
+                            <div key={transaction.id}>
                                 <TransactionCard transaction={transaction} />
                             </div>
                         ))}

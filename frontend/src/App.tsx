@@ -14,7 +14,7 @@ function App() {
   return (
     <div className={theme}>
       <div className="background">
-        {/*<Navbar setTheme={setTheme} theme={theme} openModal={openModal} />*/}
+        <Navbar setTheme={setTheme} theme={theme} openModal={openModal} />
         <Dashboard />
         {open && <AddModal closeModal={closeModal} />}
       </div>

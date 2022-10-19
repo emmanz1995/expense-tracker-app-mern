@@ -4,6 +4,8 @@ import { IUser } from '../models/types';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
+// class User {}
+
 const signIn = async(req: Request, res: Response) => {
   const { email, password } = req.body;
   if(!email || !password) {

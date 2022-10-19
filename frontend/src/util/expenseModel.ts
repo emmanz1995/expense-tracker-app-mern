@@ -9,8 +9,8 @@ const create = (doc: Expense) => ({
 // @ts-ignore
 const addExpense = (expense: Expense[]) => ([ ...expense, { item: expense.item, price: expense.price, type: expense.type } ]);
 
-const deleteExpense = (id: string, expense: Expense[]) => ({ expense: expense.filter(exp => exp._id === id) });
+const deleteExpense = (id: string, expense: Expense[]) => ({ expense: expense.filter(exp => exp.id === id) });
 
-const updateExpense = (id: string, expense: Expense[]) => ({ expense: expense.map(exp => exp._id === id ? {...exp} : exp) });
+const updateExpense = (id: string, expense: Expense[]) => ({ expense: expense.map(exp => exp.id === id ? {...exp} : exp) });
 
 export { create, addExpense, updateExpense, deleteExpense }

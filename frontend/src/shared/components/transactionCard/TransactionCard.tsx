@@ -24,7 +24,7 @@ const TransactionCard: FC<{ transaction: Expense }> = ({ transaction }) => {
             <div>
                 <span>
                     <FaEdit style={{ cursor: 'pointer' }} />{' '}
-                    <FaTrash onClick={() => handleDeleteExpense(transaction._id)} style={{ cursor: 'pointer' }} />
+                    <FaTrash onClick={() => handleDeleteExpense(transaction.id)} style={{ cursor: 'pointer' }} />
                 </span>
             </div>
         </div>
