@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import './App.scss';
 import Dashboard from './expense/dashboard/Dashboard';
 import Navbar from './shared/components/navbar/Navbar';
-import AddModal from "./shared/components/addModal/AddModal";
+import AddModal from './shared/components/addModal/AddModal';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -15,7 +16,9 @@ function App() {
     <div className={theme}>
       <div className="background">
         <Navbar setTheme={setTheme} theme={theme} openModal={openModal} />
-        <Dashboard />
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+        </Routes>
         {open && <AddModal closeModal={closeModal} />}
       </div>
     </div>
