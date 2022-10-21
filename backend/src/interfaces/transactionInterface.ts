@@ -3,6 +3,7 @@ export interface ITransactions {
   item: string;
   price: number;
   type: transactionType;
+  userId: string;
   createdAt?: string;
   updatedAt?: string;
 }

@@ -13,6 +13,10 @@ const TransactionSchema = new Schema<ITransactions>({
   type: {
     type: String,
     enum: transactionType
+  },
+  userId: {
+    ref: 'users',
+    type: Schema.Types.ObjectId
   }
 }, { timestamps: true });
 

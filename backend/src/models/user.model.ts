@@ -18,10 +18,14 @@ const userSchema = new Schema<IUser>({
     type: String,
     required: true
   },
-  transactions: {
-    ref: 'transactions',
-    type: Schema.Types.ObjectId
-  }
+  avatar: {
+    type: String,
+    default: 'https://res.cloudinary.com/emmanuel-cloud-storage/image/upload/v1664932691/avatars/acm2gcrooqrartajkytq.svg'
+  },
+  // transactions: {
+  //   ref: 'transactions',
+  //   type: Schema.Types.ObjectId
+  // }
 }, { timestamps: true });
 
 userSchema.set('toJSON', {

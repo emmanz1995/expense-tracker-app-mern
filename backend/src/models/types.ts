@@ -3,6 +3,7 @@ export interface ITransactions {
   item: string;
   price: number;
   type: transactionType;
+  userId?: string;
   createdAt?: string;
   updatedAt?: string;
 }
@@ -16,6 +17,7 @@ export interface IUser {
   name: string;
   username: string;
   email: string;
+  avatar: string;
   password: string;
   transactions: ITransactions;
 }

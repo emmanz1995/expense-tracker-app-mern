@@ -4,13 +4,13 @@ import Transactions from '../models/transaction.model';
 class TransactionRepository {
   db = Transactions;
   async create(transactionData: ITransactions) {
-    const { item, price, type } = transactionData;
-    const transaction = await this.db.create({ item, price, type });
+    const { item, price, type, userId } = transactionData;
+    const transaction = await this.db.create({ item, price, type, userId });
     return transaction;
   }
 
-  async getAll() {
-    const transactions = await this.db.find({}).sort({ createdAt: -1 });
+  async getAll(id: string) {
+    const transactions = await this.db.find({ userId: id }).sort({ createdAt: -1 });
     return transactions;
   }
 

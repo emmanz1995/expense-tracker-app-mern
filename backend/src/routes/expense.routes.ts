@@ -2,6 +2,7 @@ import express from 'express';
 import TransactionController from '../controllers/transaction.controller';
 import TransactionRepository from '../repositories/TransactionRepository';
 import TransactionService from '../service/TransactionService';
+import requireLogin from '../middleware/requireLogin';
 
 const router = express.Router();
 
@@ -9,12 +10,12 @@ const transactionRepository = new TransactionRepository()
 const transactionService = new TransactionService(transactionRepository)
 const transactionController = new TransactionController(transactionService)
 
-router.post('/', transactionController.createTransaction);
+router.post('/', requireLogin, transactionController.createTransaction);
 
-router.get('/', transactionController.getAllTransactions);
+router.get('/', requireLogin, transactionController.getAllTransactions);
 
-router.put('/:id', transactionController.updateTransaction);
+router.put('/:id', requireLogin, transactionController.updateTransaction);
 
-router.delete('/:id', transactionController.deleteTransaction);
+router.delete('/:id', requireLogin, transactionController.deleteTransaction);
 
 export default router;

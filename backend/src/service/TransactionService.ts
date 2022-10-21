@@ -4,8 +4,8 @@ import { ITransactions } from '../interfaces/transactionInterface';
 class TransactionService {
   constructor(private transaction: TransactionRepository) {}
 
-  public async getAll() {
-    const response = await this.transaction.getAll();
+  public async getAll(id: string) {
+    const response = await this.transaction.getAll(id);
     return response;
   }
   public async create(transactionData: ITransactions) {

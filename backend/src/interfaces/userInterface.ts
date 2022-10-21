@@ -9,3 +9,14 @@ export interface IUser {
   createdAt?: string;
   updatedAt?: string;
 }
+
+export interface ILogin {
+  email: string;
+  password: string;
+}
+
+export interface IHash {
+  // salt: number;
+  encrypt(text: string, salt: number): any;
+  compare(text: string, text2: string): boolean;
+}
