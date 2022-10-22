@@ -19,7 +19,7 @@ const ErrorHandler = (err: any, req: Request, res: Response, next: NextFunction)
   }
 
   if(err.name === 'CastError') {
-    customError.msg = `No item found with id ${err.item}`;
+    customError.msg = `No item found with id ${err.value}`;
     customError.status(404);
   }
 

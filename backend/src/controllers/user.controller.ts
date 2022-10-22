@@ -38,6 +38,7 @@ class UserController {
         username: user?.username,
         id: user?.id,
         email: user?.email,
+        avatar: user?.avatar,
       };
       res.status(200).json({ token: jwtGenerate(userInfo), userInfo });
     } catch(err: any) {
@@ -46,7 +47,8 @@ class UserController {
     }
   }
   // public getProfile = async(req: Request, res: Response) => {}
-  // public getAllUsers = async(req: Request, res: Response) => {}
+  // public updateProfile = async(req: Request, res: Response) => {}
+  // public deleteProfile = async(req: Request, res: Response) => {}
 }
 
 export default UserController;

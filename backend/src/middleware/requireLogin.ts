@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import { config } from '../util/config';
 import AuthenticationError from '../error/AuthenticationError';
 
-const requireLogin = async(req: any, res: any, next: NextFunction) => {
+const requireLogin = async(req: any, res: Response, next: NextFunction) => {
   const { JWT_SECRET_KEY } = config;
   const token = req.headers['x-access-token'];
   try {

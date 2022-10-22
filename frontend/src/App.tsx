@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.scss';
 import Dashboard from './expense/dashboard/Dashboard';
+import SignIn from './expense/signIn/SignIn';
+import SignUp from './expense/signUp/SignUp';
 import Navbar from './shared/components/navbar/Navbar';
 import AddModal from './shared/components/addModal/AddModal';
 import { Routes, Route } from 'react-router-dom';
@@ -17,7 +19,9 @@ function App() {
       <div className="background">
         <Navbar setTheme={setTheme} theme={theme} openModal={openModal} />
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<SignIn />} />
+          <Route path="/register" element={<SignUp />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         {open && <AddModal closeModal={closeModal} />}
       </div>
