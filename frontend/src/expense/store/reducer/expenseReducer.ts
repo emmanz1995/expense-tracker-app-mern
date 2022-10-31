@@ -18,7 +18,7 @@ const expenseReducer = (expenses = initialState, action: AnyAction) => {
             return { error: payload }
         case Types.UPDATE_EXPENSES_SUCCESS:
             return expenses.map((expense: Expense) => (
-                expense.id === payload.id ? { ...expense, ...payload } : expense)
+              expense.id === payload.id ? { ...expense, ...payload } : expense)
             )
         case Types.UPDATE_EXPENSES_ERROR:
             return { error: payload }

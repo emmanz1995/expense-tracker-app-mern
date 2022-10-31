@@ -30,17 +30,18 @@
 }
 
 .black {
-  background-color: #000;
+  background-color: #fff;
+  box-shadow: #191a35 0 1.2rem 1rem 0;
   .nav__wrapper {
     h4 {
-      color: rgb(240 242 245/1)!important;
+      color: #191a35!important;
     }
     ul {
       .moon-icon {
-        color: rgb(240 242 245/1)!important;
+        color: #191a35!important;
       }
       .create-post-link {
-        color: rgb(240 242 245/1)!important;
+        color: #191a35!important;
         text-decoration: none;
       }
     }

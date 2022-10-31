@@ -14,17 +14,17 @@ const TransactionCard: FC<{ transaction: Expense }> = ({ transaction }) => {
     }
 
     return (
-        <div className="transactionCard" style={{ borderLeft: `3px solid ${colorType(transaction.type)}` }}>
+        <div className="transactionCard" style={{ borderLeft: `3px solid ${colorType(transaction?.type)}` }}>
             <div className="transactionCard__header">
                 <span>
-                    <h5>{transaction.item}</h5>
-                    <p>${transaction.price}</p>
+                    <h5>{transaction?.item}</h5>
+                    <p>${transaction?.price}</p>
                 </span>
             </div>
             <div>
                 <span>
                     <FaEdit style={{ cursor: 'pointer' }} />{' '}
-                    <FaTrash onClick={() => handleDeleteExpense(transaction.id)} style={{ cursor: 'pointer' }} />
+                    <FaTrash onClick={() => handleDeleteExpense(transaction?.id)} style={{ cursor: 'pointer' }} />
                 </span>
             </div>
         </div>

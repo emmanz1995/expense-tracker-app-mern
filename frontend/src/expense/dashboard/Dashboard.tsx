@@ -26,14 +26,10 @@ const Dashboard = () => {
     const money = new Intl.NumberFormat('en-US', moneyOptions);
 
     // Find and get the total amount of the expense transaction
-    const expenseAmount = transactions
-      .filter((transaction: Expense) => transaction.type === 'expense')
-      .reduce((value1: number, value2: Price) => value1 + value2.price, 0);
+    const expenseAmount = transactions?.filter((transaction: Expense) => transaction?.type === 'expense')?.reduce((value1: number, value2: Price) => value1 + value2?.price, 0);
 
     // Find and get the total amount of the income transaction
-    const incomeAmount = transactions
-      .filter((transaction: Expense) => transaction.type === 'income')
-      .reduce((value1: number, value2: Price) => value1 + value2.price, 0);
+    const incomeAmount = transactions?.filter((transaction: Expense) => transaction.type === 'income')?.reduce((value1: number, value2: Price) => value1 + value2?.price, 0);
 
     const balance = incomeAmount - expenseAmount;
 
@@ -60,23 +56,21 @@ const Dashboard = () => {
       ],
     }
 
-    const showFiveTransactions = transactions.filter((transaction: Expense) => transaction.item.length)
-
     return (
         <div className="dashboard">
             <div className="dashboard__card__wrapper">
-                <div className="dashboard__cards">Welcome Back User</div>
+                <div className="dashboard__cards">Welcome Back</div>
                 <div className="dashboard__cards">
                     <h5><b><FaDollarSign />{' '}Balance</b></h5>
-                    <p>{money.format(balance)}</p>
+                    <p>{money?.format(balance)}</p>
                 </div>
                 <div className="dashboard__cards">
                     <h5><b><FaMinus style={{ color: 'red' }} />{' '}Expense</b></h5>
-                    <p>-{money.format(expenseAmount)}</p>
+                    <p>-{money?.format(expenseAmount)}</p>
                 </div>
                 <div className="dashboard__cards">
                     <h5><b><FaPlus style={{ color: 'green' }} />{' '}Income</b></h5>
-                    <p>+{money.format(incomeAmount)}</p>
+                    <p>+{money?.format(incomeAmount)}</p>
                 </div>
             </div>
             <div className="dashboard__stats__container">
@@ -87,7 +81,7 @@ const Dashboard = () => {
                 <div className="dashboard__transaction__wrapper">
                     <h4>Transaction History!</h4>
                     <div className="transactions">
-                        {transactions.map((transaction: Expense) => (
+                        {transactions?.map((transaction: Expense) => (
                             <div key={transaction.id}>
                                 <TransactionCard transaction={transaction} />
                             </div>
